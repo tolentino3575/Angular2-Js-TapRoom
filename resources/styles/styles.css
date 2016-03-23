@@ -5,3 +5,7 @@ h1 {
 .selected {
   color: #22bdf0;
 }
+
+dt{
+  text-decoration: underline;
+}

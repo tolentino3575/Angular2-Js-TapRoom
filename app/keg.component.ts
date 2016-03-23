@@ -5,12 +5,13 @@ import { Keg } from './keg.model';
   selector: 'keg-display',
   inputs: ['keg'],
   template: `
-    <ul>{{ keg.name }}
-      <li>{{ keg.brand }}</li>
-      <li>{{ keg.price }}</li>
-      <li>{{ keg.alcohol }}</li>
-      <li>{{ keg.pints }}</li>
-    </ul>
+    <dl>
+      <dt>{{ keg.name }}</dt>
+      <dd>Brand: {{ keg.brand }}</dd>
+      <dd>Price Per Keg: $ {{ keg.price }}</dd>
+      <dd>Alcohol Content: {{ keg.alcohol }} %</dd>
+      <dd>Pints in Keg: {{ keg.pints }}</dd>
+    </dl>
   `
 })
 
