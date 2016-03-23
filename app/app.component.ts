@@ -7,7 +7,7 @@ import { Component } from 'angular2/core';
     <h1>Beer!</h1>
   </div>
   <div *ngFor="#keg of kegs" class="container">
-    <h3 >{{ keg.name }}</h3>
+    <h3 >Name: {{ keg.name }} Brand: {{ keg.brand }} Price: $ {{ keg.price }} Alcohol level: {{ keg.alcohol }} Amount: {{ keg.pints }} pints</h3>
     <h4>Drink Me</h4>
     </div>
   `
