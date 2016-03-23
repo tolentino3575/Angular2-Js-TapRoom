@@ -31,7 +31,10 @@ export class KegListComponent {
     <h1>Beer!</h1>
   </div>
   <div class="container">
-    <keg-list [kegList]="kegs"></keg-list>
+    <keg-list
+    [kegList]="kegs"
+    (onKegSelect)="kegWasSelected($event)">
+    </keg-list>
   </div>
   `
 })
