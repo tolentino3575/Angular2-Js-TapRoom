@@ -1,4 +1,6 @@
 import { Component, EventEmitter } from 'angular2/core';
+import { KegListComponent } from './keg-list.component';
+import { Keg } from './keg.model';
 
 @Component({
   selector: 'my-app',
