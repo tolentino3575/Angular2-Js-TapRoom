@@ -12,3 +12,9 @@ import { Component } from 'angular2/core';
 export class AppComponent {
 
 }
+
+export class Keg {
+  constructor(public name: string, public brand: string, public price: number, public alchohol: number){
+    
+  }
+}
