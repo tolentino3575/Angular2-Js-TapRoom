@@ -6,9 +6,13 @@ import { Component } from 'angular2/core';
   <div class="page-header">
     <h1>Beer!</h1>
   </div>
-  <div *ngFor="#keg of kegs" class="container">
-    <h3 >Name: {{ keg.name }} Brand: {{ keg.brand }} Price: $ {{ keg.price }} Alcohol level: {{ keg.alcohol }} Amount: {{ keg.pints }} pints</h3>
-    <h4>Drink Me</h4>
+  <div class="container">
+    <h3 *ngFor="#keg of kegs" (click)="kegWasSelected(keg)">
+      Name: {{ keg.name }}<br>
+      Brand: {{ keg.brand }}<br>
+      Price: $ {{ keg.price }}<br>
+      Alcohol level: {{ keg.alcohol }}<br>
+      Amount: {{ keg.pints }} pints</h3>
     </div>
   `
 })
@@ -22,6 +26,9 @@ export class AppComponent {
       new Keg("Hef", "Widmer", 100, 6, 124),
       new Keg("Arrogant Bastard", "Stone", 130, 8, 124)
     ];
+  }
+  kegWasSelected(clickedKeg: Keg): void{
+    console.log(clickedKeg)
   }
 }
 
