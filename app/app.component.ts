@@ -7,7 +7,7 @@ import { Keg } from './keg.model';
   directives: [KegListComponent],
   template: `
   <div class="page-header">
-    <h1>Beer!</h1>
+    <h1>Yvonna & Erik's Saloon</h1>
   </div>
   <div class="container">
     <keg-list

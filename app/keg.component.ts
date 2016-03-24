@@ -1,8 +1,10 @@
 import { Component } from 'angular2/core';
 import { Keg } from './keg.model';
+import { SellPintComponent } from './sell-pint.component';
 
 @Component({
   selector: 'keg-display',
+  directives: [SellPintComponent],
   inputs: ['keg'],
   template: `
     <dl>
@@ -11,6 +13,7 @@ import { Keg } from './keg.model';
       <dd>Price Per Keg: $ {{ keg.price }}</dd>
       <dd>Alcohol Content: {{ keg.alcohol }} %</dd>
       <dd>Pints in Keg: {{ keg.pints }}</dd>
+        <sell-pint (onSellPint)="sellPint($event)"></sell-pint>
     </dl>
   `
 })

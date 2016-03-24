@@ -10,6 +10,7 @@ import { NewKegComponent } from './new-keg.component';
   outputs: ['onKegSelect'],
   directives: [KegComponent, EditKegDetailsComponent, NewKegComponent],
   template: `
+  <h1>Keg Inventory</h1>
   <keg-display *ngFor="#currentKeg of kegList"
     (click)="kegClicked(currentKeg)"
     [class.selected]="currentKeg === selectedKeg"
@@ -36,5 +37,8 @@ export class KegListComponent {
     this.kegList.push(
       new Keg(newKeg[0], newKeg[1], newKeg[2], newKeg[3], this.kegList.length)
     );
+  }
+  sellPint(){
+
   }
 }
