@@ -4,22 +4,31 @@ import { Keg } from './keg.model';
 import { EditKegDetailsComponent } from './edit-keg-details.component';
 import { NewKegComponent } from './new-keg.component';
 import { RemainingPintsPipe } from './remaining-pints.pipe';
+import { AlcoholPipe } from './alcohol.pipe';
 
 @Component({
   selector: 'keg-list',
   inputs: ['kegList'],
   outputs: ['onKegSelect'],
-  pipes: [RemainingPintsPipe],
+  pipes: [RemainingPintsPipe, AlcoholPipe],
   directives: [KegComponent, EditKegDetailsComponent, NewKegComponent],
   template: `
   <h1>Keg Inventory</h1>
-  <select (change)="onChange($event.target.value)">
-    <option value="All">Show All</option>
+
+  <h4>Select one from each menu</h4>
+  <select (change)="onChangePints($event.target.value)">
+    <option value="All" selected="selected">Show All</option>
     <option value="Low">Show Kegs Running Low</option>
-    <option value="Full" selected="selected">Show Kegs With TONS of Beer</option>
+    <option value="Full">Show Kegs With TONS of Beer</option>
   </select>
-  <keg-display *ngFor="#currentKeg of kegList | low:filterLow"
-    (click)="kegClicked(currentKeg)"
+
+  <select (change)="onChangeStrength($event.target.value)">
+    <option value="All" selected="selected">Show All</option>
+    <option value="Strong">Show Strong Beer</option>
+    <option value="Weak">Show Weak Beer</option>
+  </select>
+
+  <keg-display *ngFor="#currentKeg of kegList | low:filterLow | alcohol:filterStrength" (click)="kegClicked(currentKeg)"
     [class.selected]="currentKeg === selectedKeg"
     [keg]="currentKeg">
   </keg-display>
@@ -33,6 +42,7 @@ export class KegListComponent {
   public onKegSelect: EventEmitter<Keg>;
   public selectedKeg: Keg;
   public filterLow: string = "Low";
+  public filterStrength: string = "Strong";
   constructor(){
     this.onKegSelect = new EventEmitter();
   }
@@ -46,8 +56,10 @@ export class KegListComponent {
       new Keg(newKeg[0], newKeg[1], newKeg[2], newKeg[3], this.kegList.length)
     );
   }
-  onChange(filterOption){
-    this.filterLow = filterOption;
-    console.log(this.filterLow);
+  onChangePints(filterPints){
+    this.filterLow = filterPints;
+  }
+  onChangeStrength(filterAlch){
+    this.filterStrength = filterAlch;
   }
 }

@@ -6,6 +6,7 @@ import { Keg } from './keg.model';
   selector: 'my-app',
   directives: [KegListComponent],
   template: `
+
   <div class="page-header">
     <h1>Yvonna & Erik's Saloon</h1>
   </div>
@@ -22,10 +23,10 @@ export class AppComponent {
   public kegs: Keg[];
   constructor(){
     this.kegs = [
-      new Keg("RPM IPA", "Boneyard", 100, 7, 0),
-      new Keg("Sculpin", "Ballast Point", 125, 7, 1),
-      new Keg("Hef", "Widmer", 100, 6, 2),
-      new Keg("Arrogant Bastard", "Stone", 130, 8, 3)
+      new Keg("RPM IPA", "Boneyard", 7, 7, 0),
+      new Keg("Sculpin", "Ballast Point", 10, 7, 1),
+      new Keg("Hef", "Widmer", 5, 6, 2),
+      new Keg("Arrogant Bastard", "Stone", 10, 8, 3)
     ];
   }
   kegWasSelected(clickedKeg: Keg): void{
