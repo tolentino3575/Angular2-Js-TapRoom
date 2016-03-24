@@ -14,7 +14,6 @@ import { Keg } from './keg.model';
 export class SellPintComponent {
   public pintSold: Keg;
   sellPint() {
-     this.pintSold.pints--;
-    //  console.log(this.pintSold.pints);
+     this.pintSold.pints --;
   }
 }
