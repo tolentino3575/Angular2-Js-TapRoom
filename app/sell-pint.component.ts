@@ -3,6 +3,7 @@ import { Keg } from './keg.model';
 
 @Component({
   selector: 'sell-pint',
+  inputs: ['pintSold'],
   template: `
     <div>
     <button (click)="sellPint()">Sell a Pint</button>
@@ -11,7 +12,9 @@ import { Keg } from './keg.model';
 })
 
 export class SellPintComponent {
-  sellPint(){
-    var sellPint = keg.pints -1;
+  public pintSold: Keg;
+  sellPint() {
+     this.pintSold.pints--;
+    //  console.log(this.pintSold.pints);
   }
 }

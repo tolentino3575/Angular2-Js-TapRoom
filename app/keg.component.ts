@@ -4,8 +4,8 @@ import { SellPintComponent } from './sell-pint.component';
 
 @Component({
   selector: 'keg-display',
-  directives: [SellPintComponent],
   inputs: ['keg'],
+  directives: [SellPintComponent],
   template: `
     <dl>
       <dt>{{ keg.name }}</dt>
@@ -13,7 +13,7 @@ import { SellPintComponent } from './sell-pint.component';
       <dd>Price Per Keg: $ {{ keg.price }}</dd>
       <dd>Alcohol Content: {{ keg.alcohol }} %</dd>
       <dd>Pints in Keg: {{ keg.pints }}</dd>
-        <sell-pint (onSellPint)="sellPint($event)"></sell-pint>
+        <sell-pint *ngIf="keg.pints > 0" [pintSold]="keg"></sell-pint>
     </dl>
   `
 })

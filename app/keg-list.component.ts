@@ -29,7 +29,7 @@ export class KegListComponent {
     this.onKegSelect = new EventEmitter();
   }
   kegClicked(clickedKeg: Keg): void {
-    console.log("child", clickedKeg);
+    // console.log("childClicked", clickedKeg);
     this.selectedKeg = clickedKeg;
     this.onKegSelect.emit(clickedKeg);
   }
@@ -37,8 +37,5 @@ export class KegListComponent {
     this.kegList.push(
       new Keg(newKeg[0], newKeg[1], newKeg[2], newKeg[3], this.kegList.length)
     );
-  }
-  sellPint(){
-
   }
 }

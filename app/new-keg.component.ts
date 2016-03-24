@@ -30,6 +30,6 @@ export class NewKegComponent{
     newUserBrand.value="";
     newUserPrice.value="";
     newUserAlcoholContent.value="";
-    console.log(newKeg);
+    // console.log(newKeg);
   }
 }
