@@ -41,8 +41,8 @@ export class KegListComponent {
   public kegList: Keg[];
   public onKegSelect: EventEmitter<Keg>;
   public selectedKeg: Keg;
-  public filterLow: string = "Low";
-  public filterStrength: string = "Strong";
+  public filterLow: string = "All";
+  public filterStrength: string = "All";
   constructor(){
     this.onKegSelect = new EventEmitter();
   }

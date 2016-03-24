@@ -9,3 +9,11 @@ h1 {
 dt{
   text-decoration: underline;
 }
+
+.cheap {
+  background-color: grey;
+}
+
+.expensive {
+  background-color: green;
+}
